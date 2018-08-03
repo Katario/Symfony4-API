@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,20 @@ class Album
      * @ORM\Column(type="string", length=255)
      */
     private $artist;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Song", mappedBy="album")
+     */
+    private $songs;
+
+
+
+    public function __construct()
+    {
+      $this->songs = new ArrayCollection();
+    }
+
+
 
     public function getId()
     {
@@ -87,5 +102,13 @@ class Album
         $this->artist = $artist;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection|\App\Entity\Song[]
+     */
+    public function getSongs(): ArrayCollection
+    {
+      return $this->songs;
     }
 }

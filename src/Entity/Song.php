@@ -31,6 +31,14 @@ class Song
      */
     private $length;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Album", inversedBy="songs")
+     */
+    private $album;
+
+
+
+
     public function getId()
     {
         return $this->id;
@@ -70,5 +78,17 @@ class Song
         $this->length = $length;
 
         return $this;
+    }
+
+    public function getAlbum(): ?Album
+    {
+      return $this->album;
+    }
+
+    public function setAlbum(?Album $album): self
+    {
+      $this->album = $album;
+
+      return $this;
     }
 }
