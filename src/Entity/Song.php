@@ -85,7 +85,7 @@ class Song
       return $this->album;
     }
 
-    public function setAlbum(?Album $album): self
+    public function addAlbum(?Album $album): self
     {
       $this->album = $album;
 
