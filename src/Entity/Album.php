@@ -107,7 +107,7 @@ class Album
     /**
      * @return ArrayCollection|\App\Entity\Song[]
      */
-    public function getSongs(): ArrayCollection
+    public function getSongs()
     {
       return $this->songs;
     }
