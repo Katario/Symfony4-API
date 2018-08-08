@@ -6,6 +6,7 @@ This application displays albums & songs
 - cd Symfony-API
 - composer install
 - yarn install
+- setup your .env!
 - php bin/console doctrine:database:create
 - php bin/console doctrine:migrations:migrate
 - php bin/console doctrine:fixtures:load
