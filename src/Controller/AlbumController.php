@@ -18,7 +18,7 @@ class AlbumController extends Controller {
 
     /**
      * Return all albums
-     * @Route("/albums", methods={"GET"})
+     * @Route("/api/albums", methods={"GET"})
      *
      * @return Response
      */
@@ -42,7 +42,7 @@ class AlbumController extends Controller {
     /**
      * Return one album
      *
-     * @Route("/albums/{id}")
+     * @Route("/api/albums/{id}")
      *
      * @ParamConverter("album", class="App\Entity\Album", options={"mapping": {"id": "id"}})
      *
@@ -66,7 +66,7 @@ class AlbumController extends Controller {
 
     /**
      * Post one album
-     * @Route("/albums", methods={"POST"})
+     * @Route("/api/albums", methods={"POST"})
      *
      * @param EntityManagerInterface $em
      * @param Request $request

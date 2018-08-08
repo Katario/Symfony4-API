@@ -14,7 +14,7 @@ class SongController {
 
     /**
      * Post song
-     * @Route("/songs", methods={"POST"})
+     * @Route("/api/songs", methods={"POST"})
      *
      * @param EntityManagerInterface $em
      * @param Request $request
