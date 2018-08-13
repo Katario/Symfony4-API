@@ -8,16 +8,10 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class AlbumFixtures extends Fixture
 {
-    public function load(ObjectManager $manager)
-    {
+
+    public function load(ObjectManager $manager) {
         $i = 0;
-        foreach ($this->getAlbumData() as [
-            $title,
-            $img,
-            $year,
-            $artist,
-        ])
-        {
+        foreach ($this->getAlbumData() as [$title, $img, $year, $artist]) {
             $album = new Album();
             $album->setTitle($title);
             $album->setImg($img);
@@ -33,8 +27,7 @@ class AlbumFixtures extends Fixture
         $manager->flush();
     }
 
-    private function getAlbumData(): array
-    {
+    private function getAlbumData(): array {
         return [
             [
                 "Demon Days",
