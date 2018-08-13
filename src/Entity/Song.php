@@ -3,9 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\SongRepository")
+ *
  */
 class Song
 {
@@ -18,6 +23,7 @@ class Song
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -28,6 +34,7 @@ class Song
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank()
      */
     private $length;
 

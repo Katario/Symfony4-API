@@ -12,11 +12,12 @@ class SongFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getSongData() as [$title,
-                                              $rating,
-                                              $length,
-                                              $album
-                                              ])
+        foreach ($this->getSongData() as [
+            $title,
+            $rating,
+            $length,
+            $album
+        ])
         {
             $song = new Song();
             $song->setTitle($title);
