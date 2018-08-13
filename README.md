@@ -17,5 +17,10 @@ This application displays albums & songs
 - GET /api/albums : Return all albums
 - GET /api/albums/{id} : Return one album
 - POST /api/albums: Post one album
-
 - POST /api/songs : Post one song
+
+- POST /api/test/albums : Post  one album (to deploy Form Validation)
+
+### Commands
+
+- php bin/phpunit : to start the test
