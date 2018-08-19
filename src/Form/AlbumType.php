@@ -3,10 +3,12 @@
 namespace App\Form;
 
 
+use App\Entity\Album;
 use Doctrine\DBAL\Types\IntegerType;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AlbumType extends AbstractType
 {
@@ -20,5 +22,12 @@ class AlbumType extends AbstractType
             ->add('year', IntegerType::class)
             ->add('artist', TextType::class)
         ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => Album::class,
+        ));
     }
 }

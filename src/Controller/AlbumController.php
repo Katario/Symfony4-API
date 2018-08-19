@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AlbumController extends Controller
@@ -21,8 +22,8 @@ class AlbumController extends Controller
      *
      * @param EntityManagerInterface $em
      * @param Request $request
-     * @return Response
-     * @throws \Exception
+     *
+     * @return JsonResponse | BadRequestHttpException
      */
     public function createAlbum(EntityManagerInterface $em, Request $request) {
         $album = new Album();
@@ -31,26 +32,13 @@ class AlbumController extends Controller
         $form->submit($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            try {
-                $data = $form->getData();
-
-                $album->setTitle($data->getTitle());
-                $album->setArtist($data->getArtist());
-                $album->setYear($data->getYear());
-                $album->setImg($data->getImg());
-
+                $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($album);
                 $em->flush();
 
-            }
-            catch(\Exception $e) {
-                /* TODO add the errors properly */
-                throw new \Exception('Something went wrong!');
-            }
-
-            return new JsonResponse($album);
+            return new JsonResponse($album, 200);
         }
-        throw new \Exception("Not submitted!");
+        return new BadRequestHttpException("Not submitted!");
     }
 }
