@@ -10,7 +10,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 class SongFixtures extends Fixture implements DependentFixtureInterface
 {
 
-    public function load(ObjectManager $manager) {
+    public function load(ObjectManager $manager)
+    {
         foreach ($this->getSongData() as [$title, $rating, $length, $album]) {
             $song = new Song();
             $song->setTitle($title);
@@ -24,7 +25,8 @@ class SongFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    private function getSongData(): array {
+    private function getSongData(): array
+    {
         return [
             ['Kids with guns', 4.25, 3.46, $this->getReference(0)],
             ['Dirty Harry', 4, 3.44, $this->getReference(0)],
@@ -37,7 +39,8 @@ class SongFixtures extends Fixture implements DependentFixtureInterface
         ];
     }
 
-    public function getDependencies() {
+    public function getDependencies()
+    {
         return array(
             AlbumFixtures::class,
         );

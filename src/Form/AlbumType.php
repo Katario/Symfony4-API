@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-
 use App\Entity\Album;
 use Doctrine\DBAL\Types\IntegerType;
 use Doctrine\DBAL\Types\TextType;

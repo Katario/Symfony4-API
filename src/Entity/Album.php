@@ -51,7 +51,7 @@ class Album
 
     public function __construct()
     {
-      $this->songs = new ArrayCollection();
+        $this->songs = new ArrayCollection();
     }
 
 
@@ -115,6 +115,6 @@ class Album
      */
     public function getSongs()
     {
-      return $this->songs;
+        return $this->songs;
     }
 }

@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\SongRepository")
@@ -89,13 +88,13 @@ class Song
 
     public function getAlbum(): ?Album
     {
-      return $this->album;
+        return $this->album;
     }
 
     public function addAlbum(?Album $album): self
     {
-      $this->album = $album;
+        $this->album = $album;
 
-      return $this;
+        return $this;
     }
 }

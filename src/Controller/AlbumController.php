@@ -3,11 +3,9 @@ namespace App\Controller;
 
 use App\Entity\Album;
 use App\Form\AlbumType;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,12 +18,12 @@ class AlbumController extends Controller
      *
      * @Route("/api/test/albums", methods={"POST"})
      *
-     * @param EntityManagerInterface $em
      * @param Request $request
      *
      * @return JsonResponse | BadRequestHttpException
      */
-    public function createAlbum(EntityManagerInterface $em, Request $request) {
+    public function createAlbum(Request $request)
+    {
         $album = new Album();
         $form = $this->createForm(AlbumType::class, $album);
         $form->handleRequest($request);
